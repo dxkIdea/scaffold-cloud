@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dxk.microservice</groupId>
+    <artifactId>scaffold-cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>scaffold-cloud-common</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>scaffold-cloud</name>
+    <description>基于SpringBoot、SpringCloud、SpringCloud Alibaba 开发的微服务架构脚手架</description>
+
+    <!--属性， 各依赖的版本号-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>8</java.version>
+        <!--Spring Boot版本-->
+        <spring-boot.version>2.5.0</spring-boot.version>
+        <!--Spring Cloud版本-->
+        <spring-cloud.version>2020.0.2</spring-cloud.version>
+        <!--spring-cloud-bootstrap-->
+        <spring-cloud-bootstrap>3.0.3</spring-cloud-bootstrap>
+        <!--Spring Cloud Alibaba版本-->
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <!--Mysql连接驱动-->
+        <jdbc-mysql.version>8.0.11</jdbc-mysql.version>
+        <!--druid连接池-->
+        <druid.version>1.1.21</druid.version>
+        <!--mybatis plus-->
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <mybatis-plus.extension.version>3.4.2</mybatis-plus.extension.version>
+        <mybatis-plus-generator.version>3.5.0</mybatis-plus-generator.version>
+        <!--redis-->
+        <jedis.version>3.0.1</jedis.version>
+        <redisson.version>3.15.0</redisson.version>
+        <!--lombok版本号-->
+        <lombok.version>1.18.20</lombok.version>
+        <!--Java工具类库-->
+        <hutool.version>5.1.2</hutool.version>
+        <jwt.version>0.7.0</jwt.version>
+        <httpclient.version>4.5.11</httpclient.version>
+        <!--Guava工具类-->
+        <guava.version>29.0-jre</guava.version>
+        <commons.lang3.version>3.11</commons.lang3.version>
+        <security.oauth.version>2.2.1.RELEASE</security.oauth.version>
+        <!--免费对象存储服务-->
+        <minio.version>7.1.0</minio.version>
+        <!--FastJson版本号-->
+        <fastJson-version>1.2.76</fastJson-version>
+    </properties>
+
+    <!--本pom增加依赖 后续子模块会默认依赖-->
+    <dependencies>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <!-- HuTool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!--后续子模块引入以下任意依赖，会按照指定的版本号引入-->
+    <dependencyManagement>
+        <dependencies>
+            <!--SpringBoot-starter依赖版本-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--SpringCloud依赖版本-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--SpringCloud-Alibaba依赖版本管理-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--2020版本以后，添加spring-cloud-context是没有用的，因为官方重构了bootstrap引导配置的加载方式-->
+            <!--Fucking this  找了半天。。-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud-bootstrap}</version>
+            </dependency>
+            <!-- MySql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${jdbc-mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- MyBatis  -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.extension.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+            <!-- Jedis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastJson-version}</version>
+            </dependency>
+            <!-- Redisson -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+                <version>${security.oauth.version}</version>
+            </dependency>
+            <!-- JWT -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <!-- HttpClient start -->
+            <!-- 使用 org.apache.httpcomponents 而不是 commons-httpclient，commons-httpclient是一个HttpClient老版本的项目，到3.1版本为止，此后项目被废弃不再更新（3.1版本，07年8.21发布），它已经被归入了一个更大的Apache HttpComponents项目中，这个项目版本号是HttpClient 4.x（4.5.8最新版本，19年5.30发布）。 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+            <!--minio-->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--阿里云镜像-->
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!--spring-boot-maven 插件-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
