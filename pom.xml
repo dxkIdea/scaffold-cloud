@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>scaffold-cloud-common</module>
+        <module>scaffold-cloud-gateway</module>
     </modules>
     <packaging>pom</packaging>
     <name>scaffold-cloud</name>
@@ -31,7 +32,7 @@
         <!--Mysql连接驱动-->
         <jdbc-mysql.version>8.0.11</jdbc-mysql.version>
         <!--druid连接池-->
-        <druid.version>1.1.21</druid.version>
+        <druid.version>1.2.6</druid.version>
         <!--mybatis plus-->
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <mybatis-plus.extension.version>3.4.2</mybatis-plus.extension.version>

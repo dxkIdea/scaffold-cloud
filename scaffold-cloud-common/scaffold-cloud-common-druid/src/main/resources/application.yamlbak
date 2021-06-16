@@ -2,8 +2,8 @@ com:
   dxk:
     microservice:
       datasource:
-        enable : true
         druid:
+          enable : true
           url: mysql://127.0.0.1:3306/scaffold-cloud?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: root
           password: 123456
@@ -26,6 +26,12 @@ com:
           maxPoolPreparedStatementPerConnectionSize: 20
           useGlobalDataSourceStat: true
           connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-          loginUserName: druid
-          loginPassword: druid
-        mybatis-plus:
+          web:
+            enable: true
+            loginUserName: druid
+            loginPassword: druid
+spring:
+  datasource:
+    druid:
+      web-stat-filter:
+        enabled: true
