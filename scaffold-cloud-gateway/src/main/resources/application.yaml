@@ -1,14 +1,18 @@
+server:
+  port: 8081
+
 com:
   dxk:
     microservice:
       datasource:
         druid:
-          enable : true
+          enable: true
           url: mysql://127.0.0.1:3306/scaffold-cloud?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: root
           password: 123456
+          #com.mysql.cj.jdbc.Driver
           driver-class-name: com.mysql.cj.jdbc.Driver
-          type: com.alibaba.druid.pool.DruidDataSource
+          type: mysql
           #数据源其他配置
           initialSize: 5
           minIdle: 5
@@ -26,3 +30,7 @@ com:
           maxPoolPreparedStatementPerConnectionSize: 20
           useGlobalDataSourceStat: true
           connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+          web:
+            enable: true
+            loginUserName: druid
+            loginPassword: druid
