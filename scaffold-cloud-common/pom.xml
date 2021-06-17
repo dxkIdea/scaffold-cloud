@@ -13,6 +13,7 @@
     <description>自定义全局异常、自定义工具类、各个中间件的初始化模块</description>
     <modules>
         <module>scaffold-cloud-common-druid</module>
+        <module>scaffold-cloud-common-mybatis-plus</module>
     </modules>
 
     <artifactId>scaffold-cloud-common</artifactId>

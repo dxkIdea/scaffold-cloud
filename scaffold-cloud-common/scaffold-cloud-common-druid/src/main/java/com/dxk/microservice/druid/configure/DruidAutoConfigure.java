@@ -35,6 +35,20 @@ public class DruidAutoConfigure {
             dds.setDriverClassName(druidProperties.getDriverClassName());
             dds.setDbType(druidProperties.getType());
             dds.setFilters(druidProperties.getFilters());
+            dds.setInitialSize(druidProperties.getInitialSize());
+            dds.setMinIdle(druidProperties.getMinIdle());
+            dds.setMaxActive(druidProperties.getMaxActive());
+            dds.setMaxWait(druidProperties.getMaxWait());
+            dds.setTimeBetweenEvictionRunsMillis(druidProperties.getTimeBetweenEvictionRunsMillis());
+            dds.setMinEvictableIdleTimeMillis(druidProperties.getMinEvictableIdleTimeMillis());
+            dds.setValidationQuery(druidProperties.getValidationQuery());
+            dds.setTestWhileIdle(druidProperties.getTestWhileIdle());
+            dds.setTestOnBorrow(druidProperties.getTestOnBorrow());
+            dds.setTestOnReturn(druidProperties.getTestOnReturn());
+            dds.setPoolPreparedStatements(druidProperties.getPoolPreparedStatements());
+            dds.setMaxPoolPreparedStatementPerConnectionSize(druidProperties.getMaxPoolPreparedStatementPerConnectionSize());
+            dds.setUseGlobalDataSourceStat(druidProperties.getUseGlobalDataSourceStat());
+            //dds.setConnectProperties(druidProperties.getConnectionProperties());
         } catch (Exception e) {
             log.error("Druid数据源初始化异常，异常信息为：{}", e.getMessage());
         }
