@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.dxk.microservice.druid.configure.DruidAutoConfigure,\
+  com.dxk.microservice.druid.configure.DruidWebAutoConfigure
