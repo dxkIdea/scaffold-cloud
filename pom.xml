@@ -6,9 +6,9 @@
 
     <groupId>com.dxk.microservice</groupId>
     <artifactId>scaffold-cloud</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${scaffold-cloud.version}</version>
     <modules>
-        <module>scaffold-cloud-common</module>
+        <module>scaffold-cloud-core</module>
         <module>scaffold-cloud-gateway</module>
     </modules>
     <packaging>pom</packaging>
@@ -21,6 +21,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <java.version>8</java.version>
+        <!--定义顶层父模块版本号，后续使用相关模块version引用${scaffold-cloud.version}即可}-->
+        <scaffold-cloud.version>1.0-SNAPSHOT</scaffold-cloud.version>
         <!--Spring Boot版本-->
         <spring-boot.version>2.5.0</spring-boot.version>
         <!--Spring Cloud版本-->
