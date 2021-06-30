@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>scaffold-cloud-common</artifactId>
+        <artifactId>scaffold-cloud-configuration</artifactId>
         <groupId>com.dxk.microservice</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <name>scaffold-cloud-common-druid</name>
+    <name>scaffold-cloud-configuration-druid</name>
     <description>Druid数据源初始化配置</description>
 
-    <artifactId>scaffold-cloud-common-druid</artifactId>
+    <artifactId>scaffold-cloud-configuration-druid</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

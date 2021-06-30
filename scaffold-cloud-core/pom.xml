@@ -9,14 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <name>scaffold-cloud-common</name>
+    <name>scaffold-cloud-core</name>
     <description>自定义全局异常、自定义工具类、各个中间件的初始化模块</description>
     <modules>
-        <module>scaffold-cloud-common-druid</module>
-        <module>scaffold-cloud-common-mybatis-plus</module>
+        <module>scaffold-cloud-configuration</module>
+        <module>scaffold-cloud-starter</module>
     </modules>
 
-    <artifactId>scaffold-cloud-common</artifactId>
+    <artifactId>scaffold-cloud-core</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
