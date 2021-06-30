@@ -36,7 +36,7 @@ com:
             loginPassword: druid
 
 mybatis-plus:
-  enable: true
+  enable: false
   configuration:
     map-underscore-to-camel-case: true
     auto-mapping-behavior: full
