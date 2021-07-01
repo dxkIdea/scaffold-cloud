@@ -12,6 +12,7 @@
     <description>封装各个环境的依赖，如：子模块想要使用SpringCloud环境，引入scaffold-cloud-cloud-starter依赖即可</description>
     <modules>
         <module>scaffold-cloud-web-starter</module>
+        <module>scaffold-cloud-cloud-starter</module>
     </modules>
 
     <artifactId>scaffold-cloud-starter</artifactId>
